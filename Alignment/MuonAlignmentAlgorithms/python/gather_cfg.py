@@ -123,7 +123,7 @@ if len(good_lumis)>0:
     fileNames = cms.untracked.vstring(*inputfiles),
     skipEvents = cms.untracked.uint32(skipEvents)) 
   import FWCore.PythonUtilities.LumiList as LumiList
-  process.source.lumisToProcess = LumiList.LumiList(filename = 'Run2016H.json').getVLuminosityBlockRange()
+  process.source.lumisToProcess = LumiList.LumiList(filename = good_lumis).getVLuminosityBlockRange()
 else:
   process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(*inputfiles),

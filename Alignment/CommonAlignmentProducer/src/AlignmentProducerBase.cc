@@ -484,7 +484,8 @@ void AlignmentProducerBase::applyAlignmentsToDB(const edm::EventSetup& setup) {
           setup,
           gemAliToken_,
           gemAliErrToken_,
-          align::DetectorGlobalPosition(*globalPositions_, DetId(DetId::Muon)))*/;
+          align::DetectorGlobalPosition(*globalPositions_, DetId(DetId::Muon)))*/
+      ;
     }
   }
 }

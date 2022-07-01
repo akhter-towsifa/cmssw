@@ -10,21 +10,24 @@
 #define MAX_HIT_CHAM 14
 #define MAX_SEGMENT 5
 
-
 typedef struct {
   int nhits;
-  float xc[MAX_HIT]; float yc[MAX_HIT]; float zc[MAX_HIT];
+  float xc[MAX_HIT];
+  float yc[MAX_HIT];
+  float zc[MAX_HIT];
   float erx[MAX_HIT];
-  int wh[MAX_HIT]; int st[MAX_HIT]; int sr[MAX_HIT];
-  int sl[MAX_HIT]; int la[MAX_HIT];
+  int wh[MAX_HIT];
+  int st[MAX_HIT];
+  int sr[MAX_HIT];
+  int sl[MAX_HIT];
+  int la[MAX_HIT];
 } Info1D;
-  
 
-typedef struct{
+typedef struct {
   float p, pt, eta, phi, charge;
   int nhits[MAX_SEGMENT];
   int nseg;
-  float xSl[MAX_SEGMENT]; 
+  float xSl[MAX_SEGMENT];
   float dxdzSl[MAX_SEGMENT];
   float exSl[MAX_SEGMENT];
   float edxdzSl[MAX_SEGMENT];
@@ -34,7 +37,7 @@ typedef struct{
   float eySl[MAX_SEGMENT];
   float edydzSl[MAX_SEGMENT];
   float eydydzSl[MAX_SEGMENT];
-  float xSlSL1[MAX_SEGMENT]; 
+  float xSlSL1[MAX_SEGMENT];
   float dxdzSlSL1[MAX_SEGMENT];
   float exSlSL1[MAX_SEGMENT];
   float edxdzSlSL1[MAX_SEGMENT];
@@ -43,7 +46,7 @@ typedef struct{
   float xSlSL3[MAX_SEGMENT];
   float dxdzSlSL3[MAX_SEGMENT];
   float exSlSL3[MAX_SEGMENT];
-  float edxdzSlSL3[MAX_SEGMENT]; 
+  float edxdzSlSL3[MAX_SEGMENT];
   float exdxdzSlSL3[MAX_SEGMENT];
   float xSL3SL1[MAX_SEGMENT];
   float xc[MAX_SEGMENT][MAX_HIT_CHAM];
@@ -53,13 +56,12 @@ typedef struct{
   float ycp[MAX_SEGMENT][MAX_HIT_CHAM];
   float zcp[MAX_SEGMENT][MAX_HIT_CHAM];
   float ex[MAX_SEGMENT][MAX_HIT_CHAM];
-  int wh[MAX_SEGMENT]; int st[MAX_SEGMENT]; int sr[MAX_SEGMENT];
+  int wh[MAX_SEGMENT];
+  int st[MAX_SEGMENT];
+  int sr[MAX_SEGMENT];
   int sl[MAX_SEGMENT][MAX_HIT_CHAM];
   int la[MAX_SEGMENT][MAX_HIT_CHAM];
 } Residual1DHit;
-
-
-
 
 typedef struct {
   int wh, st, se;
@@ -71,7 +73,6 @@ typedef struct {
   float corr_betagamma, corr_betay;
   float corr_gammay;
 } DTSegmentResult;
-
 
 typedef struct {
   int wh, st, se;

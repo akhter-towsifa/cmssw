@@ -124,7 +124,7 @@ private:
   const edm::ESGetToken<MagneticField, IdealMagneticFieldRecord> m_MagFieldToken;
   const edm::ESGetToken<Propagator, TrackingComponentsRecord> m_propToken;
   const MuonResidualsFromTrack::BuilderToken m_builderToken;
-  
+
   // configutarion paramenters:
   edm::InputTag m_muonCollectionTag;
   std::vector<std::string> m_reference;

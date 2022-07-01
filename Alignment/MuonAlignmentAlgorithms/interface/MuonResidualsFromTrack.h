@@ -66,12 +66,12 @@ public:
                          const reco::Track *recoTrack,
                          AlignableNavigator *navigator,
                          double maxResidual,
-                         bool fillLayerPlotDT=false, 
-                         bool fillLayerPlotCSC=false, 
-                         struct DTLayerData * layerData_DT=NULL, 
-                         TTree * layerTree_DT=NULL, 
-                         struct CSCLayerData * layerData_CSC=NULL, 
-                         TTree * layerTree_CSC=NULL);
+                         bool fillLayerPlotDT = false,
+                         bool fillLayerPlotCSC = false,
+                         struct DTLayerData *layerData_DT = nullptr,
+                         TTree *layerTree_DT = nullptr,
+                         struct CSCLayerData *layerData_CSC = nullptr,
+                         TTree *layerTree_CSC = nullptr);
 
   // residuals from tracker muons
   MuonResidualsFromTrack(edm::ESHandle<GlobalTrackingGeometry> globalGeometry,
