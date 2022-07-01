@@ -94,15 +94,12 @@ if json_file is not None and json_file != '':
         good_lumis.append(str("%s:%s-%s:%s" % (run, lsrange[0], run, lsrange[1])))
         prevblock = lsrange
 
+from Configuration.Eras.Era_Run3_cff import Run3
+process = cms.Process("GATHER", Run3)
 
-process = cms.Process("GATHER")
-
-#add TrackDetectorAssociator lookup maps to the EventSetup
-process.load("TrackingTools.TrackAssociator.DetIdAssociatorESProducer_cff") 
-from TrackingTools.TrackAssociator.DetIdAssociatorESProducer_cff import *  
-from TrackingTools.TrackAssociator.default_cfi import *       
 
 process.load("Configuration.StandardSequences.Reconstruction_cff")
+process.load('TrackingTools.TransientTrack.TransientTrackBuilder_cfi')
 
 process.MuonNumberingInitialization = cms.ESProducer("MuonNumberingInitialization")
 process.MuonNumberingRecord = cms.ESSource( "EmptyESSource",
@@ -111,14 +108,12 @@ process.MuonNumberingRecord = cms.ESSource( "EmptyESSource",
     firstValid = cms.vuint32( 1 )
 )
 if is_MC:
-    process.load('Configuration.StandardSequences.GeometryDB_cff')
-    process.load("Geometry.CMSCommonData.cmsExtendedGeometry2016aXML_cfi")
+    process.load('Configuration.StandardSequences.SimIdeal_cff')
+    process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
 else:
     process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
-    process.load("Geometry.CMSCommonData.cmsExtendedGeometry2018XML_cfi")
 process.load('Configuration.StandardSequences.MagneticField_AutoFromDBCurrent_cff')
-
-if len(good_lumis)>0:
+if not os.getenv("ALIGNMENT_JSON") == "":
   process.source = cms.Source("PoolSource",
     fileNames = cms.untracked.vstring(*inputfiles),
     skipEvents = cms.untracked.uint32(skipEvents)) 

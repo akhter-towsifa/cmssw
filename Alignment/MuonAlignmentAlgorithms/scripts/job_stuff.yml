@@ -5,7 +5,7 @@
 ##
 ###
 DIRNAME: 
-    value: cosmic_testv7_CSC_1
+    value: pp_test_v3_CSC_1
     dest: DIRNAME
 ITERATIONS: 
     value: 3
@@ -14,20 +14,20 @@ INITIALGEOM:
     value: forCRAFT.db
     dest: INITIALGEOM
 INPUTFILES: 
-    value: CRAFT.list
+    value: pp.list
     dest: INPUTFILES
 
 block_size:
     help: Size of largest block
-    value: 1
+    value: 1000
     dest: block_size
 submitJobs:
     help: alternate name of submitJobs.sh script (please include .sh extension); a file with this name will be OVERWRITTEN
-    value: cosmic_test.sh
+    value: test.sh
     dest: submitJobs
 validationLabel:
     help: if given nonempty string RUNLABEL, diagnostics and creation of plots will be run in the end of the last iteration; the RUNLABEL will be used to mark a run; the results will be put into a RUNLABEL_DATESTAMP.tgz tarball
-    value: cosmic_test
+    value: test
     dest: validationLabel
 globalTag:
     help: GlobalTag for alignment/calibration conditions (typically all conditions except muon and tracker alignment)
@@ -110,7 +110,7 @@ muonCollectionTag:
 ###
 minTrackPt:
     help: minimum allowed track transverse momentum (in GeV)
-    value: 3
+    value: 30
     dest: minTrackPt
 maxTrackPt:
     help: maximum allowed track transverse momentum (in GeV)
@@ -126,11 +126,11 @@ maxTrackP:
     dest: maxTrackP
 maxDxy:
     help: maximum track impact parameter with relation to beamline
-    value: 10000
+    value: 0.2
     dest: maxDxy
 minNCrossedChambers:
     help: minimum number of muon chambers that a track is required to cross
-    value: 1
+    value: 2
     dest: minNCrossedChambers
 residualsModel:
     help: functional residuals model. Possible values= pudefault), pureGaussian, GaussPowerTails, ROOTVoigt, powerLawTail, pureGaussian2D
@@ -163,7 +163,7 @@ T0:
 
 minTrackerHits:
     help: minimum number of tracker hits
-    value: 5
+    value: 15
     dest: minTrackerHits
 maxTrackerRedChi2:
     help: maximum tracker chi^2 per degrees of freedom
